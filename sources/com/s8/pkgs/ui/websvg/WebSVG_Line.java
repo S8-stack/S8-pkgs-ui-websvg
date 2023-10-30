@@ -1,7 +1,7 @@
 package com.s8.pkgs.ui.websvg;
 
-import com.qx.core.io.svg.SVG_Vector;
 import com.s8.api.objects.web.WebS8Session;
+import com.s8.pkgs.io.svg.SVG_Vector;
 
 /**
  * 
