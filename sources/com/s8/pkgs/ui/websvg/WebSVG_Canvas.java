@@ -2,7 +2,7 @@ package com.s8.pkgs.ui.websvg;
 
 import java.util.List;
 
-import com.s8.api.objects.web.WebS8Session;
+import com.s8.api.objects.web.S8WebFront;
 import com.s8.pkgs.ui.carbide.HTML_NeNode;
 
 
@@ -19,7 +19,7 @@ public class WebSVG_Canvas extends HTML_NeNode {
 	 * @param branch
 	 * @param typeName
 	 */
-	public WebSVG_Canvas(WebS8Session branch) {
+	public WebSVG_Canvas(S8WebFront branch) {
 		super(branch, WebSVG.WEBPATH + "/WebSVG_Canvas");
 	}
 	

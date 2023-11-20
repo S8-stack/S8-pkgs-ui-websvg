@@ -1,6 +1,6 @@
 package com.s8.pkgs.ui.websvg;
 
-import com.s8.api.objects.web.WebS8Session;
+import com.s8.api.objects.web.S8WebFront;
 import com.s8.pkgs.io.svg.SVG_Vector;
 
 /**
@@ -22,7 +22,7 @@ public class WebSVG_Circle extends WebSVG_Element {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle create(WebS8Session branch, 
+	public static WebSVG_Circle create(S8WebFront branch, 
 			float thickness,
 			WebSVG_StrokeSolidity solidity,
 			WebSVG_StrokeColor color,
@@ -50,7 +50,7 @@ public class WebSVG_Circle extends WebSVG_Element {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle create(WebS8Session branch, 
+	public static WebSVG_Circle create(S8WebFront branch, 
 			double thickness,
 			WebSVG_StrokeSolidity solidity,
 			WebSVG_StrokeColor color,
@@ -68,7 +68,7 @@ public class WebSVG_Circle extends WebSVG_Element {
 	}
 
 
-	public WebSVG_Circle(WebS8Session branch) {
+	public WebSVG_Circle(S8WebFront branch) {
 		super(branch, WebSVG.WEBPATH + "/WebSVG_Circle");
 	}
 
