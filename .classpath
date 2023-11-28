@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="sources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="/com.s8.api">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="/com.s8.pkgs.ui.carbide">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -12,7 +16,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="/com.s8.pkgs.ui.carbide">
+	<classpathentry combineaccessrules="false" kind="src" path="/s8-api">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
