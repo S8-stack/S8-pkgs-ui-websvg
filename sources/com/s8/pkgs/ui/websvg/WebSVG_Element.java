@@ -1,7 +1,7 @@
 package com.s8.pkgs.ui.websvg;
 
-import com.s8.api.objects.web.S8WebFrontObject;
-import com.s8.api.objects.web.S8WebFront;
+import com.s8.api.web.S8WebFront;
+import com.s8.api.web.S8WebFrontObject;
 
 public class WebSVG_Element extends S8WebFrontObject {
 
