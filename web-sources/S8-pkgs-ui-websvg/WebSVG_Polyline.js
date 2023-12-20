@@ -1,5 +1,5 @@
-import { WebSVG_Element } from "/s8-pkgs-ui-websvg/WebSVG_Element.js";
-import { WebSVG_ViewPort } from "/s8-pkgs-ui-websvg/WebSVG.js";
+import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
+import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
 
 
 /**

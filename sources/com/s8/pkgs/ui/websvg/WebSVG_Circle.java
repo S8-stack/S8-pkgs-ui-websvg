@@ -69,7 +69,7 @@ public class WebSVG_Circle extends WebSVG_Element {
 
 
 	public WebSVG_Circle(S8WebFront branch) {
-		super(branch, WebSVG.WEBPATH + "/WebSVG_Circle");
+		super(branch, WebSources.WEBPATH + "/WebSVG_Circle");
 	}
 
 	

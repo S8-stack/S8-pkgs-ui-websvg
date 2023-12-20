@@ -20,7 +20,7 @@ public class WebSVG_Canvas extends HTML_NeNode {
 	 * @param typeName
 	 */
 	public WebSVG_Canvas(S8WebFront branch) {
-		super(branch, WebSVG.WEBPATH + "/WebSVG_Canvas");
+		super(branch, WebSources.WEBPATH + "/WebSVG_Canvas");
 	}
 	
 	

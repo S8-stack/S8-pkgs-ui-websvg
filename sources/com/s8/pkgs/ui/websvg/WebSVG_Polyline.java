@@ -73,7 +73,7 @@ public class WebSVG_Polyline extends WebSVG_Element {
 	 * @param branch
 	 */
 	public WebSVG_Polyline(S8WebFront branch) {
-		super(branch, WebSVG.WEBPATH + "/WebSVG_Polyline");
+		super(branch, WebSources.WEBPATH + "/WebSVG_Polyline");
 	}
 	
 

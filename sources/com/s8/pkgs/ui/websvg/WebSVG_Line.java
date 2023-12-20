@@ -73,7 +73,7 @@ public class WebSVG_Line extends WebSVG_Element {
 	
 	
 	public WebSVG_Line(S8WebFront branch) {
-		super(branch, WebSVG.WEBPATH + "/WebSVG_Line");
+		super(branch, WebSources.WEBPATH + "/WebSVG_Line");
 	}
 	
 	
