@@ -24,17 +24,9 @@ public class WebSVG_Canvas extends HTML_NeNode {
 	}
 	
 	
-	/**
-	 * 
-	 * @param elements
-	 */
-	public void addElement(WebSVG_Element element) {
-		vertex.fields().addObjToList("elements", element);
-	}
-
 
 	public void setElements(List<WebSVG_Element> elements) {
-		vertex.fields().setObjectListField("elements", elements);
+		vertex.outbound().setObjectListField("elements", elements);
 	}
 	
 

@@ -109,7 +109,7 @@ public class WebSVG_Line extends WebSVG_Element {
 	 * @param coordinates
 	 */
 	public void setCoordinates(float[] coordinates) {
-		vertex.fields().setFloat32ArrayField("coordinates", coordinates);
+		vertex.outbound().setFloat32ArrayField("coordinates", coordinates);
 	}
 
 	

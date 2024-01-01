@@ -82,7 +82,7 @@ public class WebSVG_Polyline extends WebSVG_Element {
 	 * @param coordinates
 	 */
 	public void setCoordinates(float[] coordinates) {
-		vertex.fields().setFloat32ArrayField("coordinates", coordinates);
+		vertex.outbound().setFloat32ArrayField("coordinates", coordinates);
 	}
 	
 	/**
@@ -97,7 +97,7 @@ public class WebSVG_Polyline extends WebSVG_Element {
 			coordinates[2*i + 0] = (float) point.getX();
 			coordinates[2*i + 1] = (float) point.getY();
 		}
-		vertex.fields().setFloat32ArrayField("coordinates", coordinates);
+		vertex.outbound().setFloat32ArrayField("coordinates", coordinates);
 	}
 
 }

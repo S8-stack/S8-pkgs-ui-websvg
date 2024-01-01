@@ -11,7 +11,7 @@ public class WebSVG_Element extends S8WebFrontObject {
 	
 	
 	public void isBoundingBoxRelevant(boolean state) {
-		vertex.fields().setBool8Field("isBoundingBoxRelevant", state);
+		vertex.outbound().setBool8Field("isBoundingBoxRelevant", state);
 	}
 	
 	
@@ -20,7 +20,7 @@ public class WebSVG_Element extends S8WebFrontObject {
 	 * @param solidity
 	 */
 	public void setStrokeSolidity(WebSVG_StrokeSolidity solidity) {
-		vertex.fields().setUInt8Field("strokeSolidity", solidity.code);
+		vertex.outbound().setUInt8Field("strokeSolidity", solidity.code);
 	}
 	
 	
@@ -29,7 +29,7 @@ public class WebSVG_Element extends S8WebFrontObject {
 	 * @param color
 	 */
 	public void setStrokeColor(WebSVG_StrokeColor color) {
-		vertex.fields().setUInt8Field("strokeColor", color.code);
+		vertex.outbound().setUInt8Field("strokeColor", color.code);
 	}
 	
 	
@@ -38,7 +38,7 @@ public class WebSVG_Element extends S8WebFrontObject {
 	 * @param thickness
 	 */
 	public void setStrokeThickness(float thickness) {
-		vertex.fields().setFloat32Field("strokeThickness", thickness);
+		vertex.outbound().setFloat32Field("strokeThickness", thickness);
 	}
 
 }

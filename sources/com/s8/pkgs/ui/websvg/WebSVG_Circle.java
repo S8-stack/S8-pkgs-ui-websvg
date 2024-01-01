@@ -78,18 +78,18 @@ public class WebSVG_Circle extends WebSVG_Element {
 	 * @param point
 	 */
 	public void setCenter(SVG_Vector point) {
-		vertex.fields().setFloat32ArrayField("center", new float[] {
+		vertex.outbound().setFloat32ArrayField("center", new float[] {
 				(float) point.getX(), (float) point.getY()
 		});
 	}
 	
 
 	public void setCenter(float x0, float y0) {
-		vertex.fields().setFloat32ArrayField("center", new float[] { x0, y0});
+		vertex.outbound().setFloat32ArrayField("center", new float[] { x0, y0});
 	}
 	
 	public void setCenter(float[] coordinates) {
-		vertex.fields().setFloat32ArrayField("center", coordinates);
+		vertex.outbound().setFloat32ArrayField("center", coordinates);
 	}
 	
 	public void setCenter(double x0, double y0) {
@@ -102,7 +102,7 @@ public class WebSVG_Circle extends WebSVG_Element {
 	 * @param radius
 	 */
 	public void setRadius(float radius) {
-		vertex.fields().setFloat32Field("radius", radius);
+		vertex.outbound().setFloat32Field("radius", radius);
 	}
 	
 	public void setRadius(double radius) {
