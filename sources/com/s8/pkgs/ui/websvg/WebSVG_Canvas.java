@@ -3,7 +3,7 @@ package com.s8.pkgs.ui.websvg;
 import java.util.List;
 
 import com.s8.api.web.S8WebFront;
-import com.s8.pkgs.ui.carbide.HTML_NeNode;
+import com.s8.pkgs.ui.carbide.HTML_S8WebNode;
 
 
 /**
@@ -11,7 +11,7 @@ import com.s8.pkgs.ui.carbide.HTML_NeNode;
  * @author pierreconvert
  *
  */
-public class WebSVG_Canvas extends HTML_NeNode {
+public class WebSVG_Canvas extends HTML_S8WebNode {
 
 	
 	/**
