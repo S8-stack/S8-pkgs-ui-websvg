@@ -1,31 +1,53 @@
 
+
+import { S8WebFront } from "/S8-pkgs-ui-carbide/S8WebFront.js";
+
 import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
 import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
 
 
 
 
+S8WebFront.CSS_import("/S8-pkgs-ui-websvg/chart/WebSVG_Chart.css");
+
+
 /**
  * 
  */
-export class WebSVG_Circle extends WebSVG_Element {
+export class WebSVG_HorizontalAxis extends WebSVG_Element {
 
 
 	/** @type{number} */
-	xCenter = 0.0;
+	x0 = 0.0;
 
 	/** @type{number} */
-	yCenter = 0.0;
+	x1 = 10.0;
 
 	/** @type{number} */
-	radius = 1.0;
+	y = 0.0;
+
+	/** @type{number} */
+	tickLength = 0.2;
     
+	/** @type{number[]} */
+	tickPositions;
+
+	/** Offset from the main line 
+	 * @type{number} */
+	tagOffset = 0.2;
+
+	/** @type{string[]} */
+	tags;
+
     constructor(){
         super();
 
 		/*   <circle cx="50" cy="50" r="50" /> */
 		this.SVG_node = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 		this.setupStroke();
+
+
+		
 		
     }
 

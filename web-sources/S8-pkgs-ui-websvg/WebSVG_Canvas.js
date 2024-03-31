@@ -5,7 +5,7 @@ import { NeObject } from "/S8-core-bohr-neon/NeObject.js";
 
 import { S8WebFront } from "/S8-pkgs-ui-carbide/S8WebFront.js";
 
-import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
 
 
@@ -94,19 +94,20 @@ export class WebSVG_Canvas extends NeObject {
      */
     redraw() {
         if (this.elements != null) {
-            const nElements = this.elements.length;
+            
 
-            /* update bounding box of the view port */
-            this.viewPort.clearBoundingBox();
+            /* update bounding box */
+            const boundingBox = new BoundingBox();
+            const nElements = this.elements.length;
             for(let i = 0; i<nElements; i++){
                 const element = this.elements[i];
                 if(element.isBoundingBoxRelevant){
-                    element.updateBoundingBox(this.viewPort);
+                    element.updateBoundingBox(boundingBox);
                 }
             }
 
             /* rescale */
-            this.viewPort.rescale();
+            this.viewPort.rescale(boundingBox);
 
             /* redraw */
             for(let i = 0; i<nElements; i++){

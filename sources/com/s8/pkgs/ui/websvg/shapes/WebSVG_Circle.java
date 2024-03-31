@@ -1,14 +1,16 @@
-package com.s8.pkgs.ui.websvg;
+package com.s8.pkgs.ui.websvg.shapes;
 
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.SVG_Vector;
+import com.s8.pkgs.ui.websvg.style.Fill;
+import com.s8.pkgs.ui.websvg.style.Stroke;
 
 /**
  * 
  * @author pierreconvert
  *
  */
-public class WebSVG_Circle extends WebSVG_Element {
+public class WebSVG_Circle extends WebSVG_Shape {
 
 	
 	/**
@@ -22,17 +24,12 @@ public class WebSVG_Circle extends WebSVG_Element {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle create(S8WebFront branch, 
-			float thickness,
-			WebSVG_StrokeSolidity solidity,
-			WebSVG_StrokeColor color,
+	public static WebSVG_Circle createCircle(S8WebFront branch, Stroke stroke,
 			double xc, double yc, 
 			double r,
 			boolean isBoundingBoxUpdating) {
 		WebSVG_Circle circle = new WebSVG_Circle(branch);
-		circle.setStrokeColor(color);
-		circle.setStrokeSolidity(solidity);
-		circle.setStrokeThickness(thickness);
+		circle.setStroke(stroke);
 		circle.setCenter(xc, yc);
 		circle.setRadius(r);
 		circle.isBoundingBoxRelevant(isBoundingBoxUpdating);
@@ -50,26 +47,21 @@ public class WebSVG_Circle extends WebSVG_Element {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle create(S8WebFront branch, 
-			double thickness,
-			WebSVG_StrokeSolidity solidity,
-			WebSVG_StrokeColor color,
-			SVG_Vector center,
-			double r,
+	public static WebSVG_Circle createRound(S8WebFront branch, Stroke stroke, Fill fill,
+			SVG_Vector center,double r,
 			boolean isBoundingBoxUpdating) {
-		WebSVG_Circle circle = new WebSVG_Circle(branch);
-		circle.setStrokeColor(color);
-		circle.setStrokeSolidity(solidity);
-		circle.setStrokeThickness((float) thickness);
-		circle.setCenter(center);
-		circle.setRadius(r);
-		circle.isBoundingBoxRelevant(isBoundingBoxUpdating);
-		return circle;
+		WebSVG_Circle shape = new WebSVG_Circle(branch);
+		shape.setStroke(stroke);
+		shape.setFill(fill);
+		shape.setCenter(center);
+		shape.setRadius(r);
+		shape.isBoundingBoxRelevant(isBoundingBoxUpdating);
+		return shape;
 	}
 
 
 	public WebSVG_Circle(S8WebFront branch) {
-		super(branch, WebSources.WEBPATH + "/WebSVG_Circle");
+		super(branch, "/WebSVG_Circle");
 	}
 
 	
@@ -105,6 +97,11 @@ public class WebSVG_Circle extends WebSVG_Element {
 		vertex.outbound().setFloat32Field("radius", radius);
 	}
 	
+	
+	/**
+	 * 
+	 * @param radius
+	 */
 	public void setRadius(double radius) {
 		setRadius((float) radius);
 	}

@@ -24,23 +24,16 @@ export class WebSVG_Element extends NeObject {
 
 
 	/**
-	 * @type{boolean}
-	 */
-	isBoundingBoxRelevant;
-
-
-	/**
 	 * @type{SVGElement}
 	 */
 	SVG_node;
 
 
 
-
 	/**
-	 * @type{String} the css suffix for the solid style
+	 * @type{boolean}
 	 */
-	strokeSolidityStyle = WebSVG.STROKE_SOLIDITY_DEFAULT;
+	isBoundingBoxRelevant = true;
 
 
 
@@ -51,7 +44,6 @@ export class WebSVG_Element extends NeObject {
 
 
 	setupStroke() {
-		this.SVG_node.classList.add("websvg-element");
 		this.SVG_node.setAttribute("stroke", "black");
 		this.SVG_node.setAttribute("stroke-width", "1");
 	}
@@ -77,41 +69,6 @@ export class WebSVG_Element extends NeObject {
 
 	S8_set_isBoundingBoxRelevant(state) {
 		this.isBoundingBoxRelevant = state;
-	}
-
-
-	/**
-	 * 
-	 * @param solidity
-	 */
-	S8_set_strokeSolidity(code) {
-		let style = WebSVG.getStrokeSolidity(code);
-		if(style != null){
-			this.SVG_node.setAttribute("stroke-dasharray", style);
-		}
-		else{
-			this.SVG_node.removeAttribute("stroke-dasharray");
-		}
-	}
-
-
-	/**
-	 * 
-	 * @param {number} color
-	 */
-	S8_set_strokeColor(code) {
-		let color = WebSVG.getStrokeColor(code);
-		this.SVG_node.setAttribute("stroke", color);
-	}
-
-
-
-	/**
-	 * 
-	 * @param {number} value 
-	 */
-	S8_set_strokeThickness(value) {
-		this.SVG_node.setAttribute("stroke-width", value.toPrecision(3));
 	}
 
 

@@ -15,30 +15,4 @@ public class WebSVG_Element extends S8WebObject {
 	}
 	
 	
-	/**
-	 * 
-	 * @param solidity
-	 */
-	public void setStrokeSolidity(WebSVG_StrokeSolidity solidity) {
-		vertex.outbound().setUInt8Field("strokeSolidity", solidity.code);
-	}
-	
-	
-	/**
-	 * 
-	 * @param color
-	 */
-	public void setStrokeColor(WebSVG_StrokeColor color) {
-		vertex.outbound().setUInt8Field("strokeColor", color.code);
-	}
-	
-	
-	/**
-	 * Style: 
-	 * @param thickness
-	 */
-	public void setStrokeThickness(float thickness) {
-		vertex.outbound().setFloat32Field("strokeThickness", thickness);
-	}
-
 }

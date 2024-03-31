@@ -1,14 +1,15 @@
-package com.s8.pkgs.ui.websvg;
+package com.s8.pkgs.ui.websvg.shapes;
 
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.SVG_Vector;
+import com.s8.pkgs.ui.websvg.style.Stroke;
 
 /**
  * 
  * @author pierreconvert
  *
  */
-public class WebSVG_Line extends WebSVG_Element {
+public class WebSVG_Line extends WebSVG_Shape {
 	
 
 	/**
@@ -22,48 +23,16 @@ public class WebSVG_Line extends WebSVG_Element {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Line create(S8WebFront branch, 
-			double thickness,
-			WebSVG_StrokeSolidity solidity,
-			WebSVG_StrokeColor color,
-			double x0, double y0, 
-			double x1, double y1,
-			boolean isBoundingBoxUpdating) {
+	public static WebSVG_Line create(S8WebFront branch, Stroke stroke,
+			double x0, double y0, double x1, double y1, boolean isBoundingBoxUpdating) {
 		WebSVG_Line circle = new WebSVG_Line(branch);
-		circle.setStrokeColor(color);
-		circle.setStrokeSolidity(solidity);
-		circle.setStrokeThickness((float) thickness);
+		circle.setStroke(stroke);
 		circle.setCoordinates((float) x0, (float) y0, (float) x1, (float) y1);
 		circle.isBoundingBoxRelevant(isBoundingBoxUpdating);
 		return circle;
 	}
 	
-	/**
-	 * 
-	 * @param branch
-	 * @param color
-	 * @param solidity
-	 * @param thickness
-	 * @param xc
-	 * @param yc
-	 * @param r
-	 * @return
-	 */
-	public static WebSVG_Line create(S8WebFront branch, 
-			float thickness,
-			WebSVG_StrokeSolidity solidity,
-			WebSVG_StrokeColor color,
-			SVG_Vector p0, SVG_Vector p1,
-			boolean isBoundingBoxUpdating) {
-		WebSVG_Line circle = new WebSVG_Line(branch);
-		circle.setStrokeColor(color);
-		circle.setStrokeSolidity(solidity);
-		circle.setStrokeThickness(thickness);
-		circle.setCoordinates(p0, p1);
-		circle.isBoundingBoxRelevant(isBoundingBoxUpdating);
-		return circle;
-	}
-	
+
 
 	public static WebSVG_Line create(S8WebFront branch, float x0, float y0, float x1, float y1) {
 		WebSVG_Line line = new WebSVG_Line(branch);
@@ -73,7 +42,7 @@ public class WebSVG_Line extends WebSVG_Element {
 	
 	
 	public WebSVG_Line(S8WebFront branch) {
-		super(branch, WebSources.WEBPATH + "/WebSVG_Line");
+		super(branch, "/WebSVG_Line");
 	}
 	
 	

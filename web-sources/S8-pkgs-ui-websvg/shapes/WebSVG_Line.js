@@ -1,7 +1,7 @@
 
 
-import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
-import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { WebSVG_Shape } from "./WebSVG_Shape.js";
 
 
 
@@ -9,7 +9,7 @@ import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
 /**
  * 
  */
-export class WebSVG_Line extends WebSVG_Element {
+export class WebSVG_Line extends WebSVG_Shape {
 
 	/** @type{number} */
 	x1;
@@ -29,6 +29,7 @@ export class WebSVG_Line extends WebSVG_Element {
 
 		/* <line x1="0" y1="80" x2="100" y2="20" stroke="black" /> */
 		this.SVG_node = document.createElementNS("http://www.w3.org/2000/svg", "line");
+		this.SVG_node.classList.add("websvg-shape");
 		this.setupStroke();
 
     }
@@ -64,10 +65,12 @@ export class WebSVG_Line extends WebSVG_Element {
 
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} box 
+	 * @param {BoundingBox} boundingBox 
 	 */
-	updateBoundingBox(box){
-		box.updateBoundingBox(this.x1, this.y1);
-		box.updateBoundingBox(this.y1, this.y2);
+	updateBoundingBox(boundingBox){
+		if(this.isBoundingBoxRelevant){
+		boundingBox.update(this.x1, this.y1);
+		boundingBox.update(this.y1, this.y2);
+		}
 	}
 }

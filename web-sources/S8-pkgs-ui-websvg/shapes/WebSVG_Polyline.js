@@ -1,11 +1,12 @@
-import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
-import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+
+import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { WebSVG_Shape } from "./WebSVG_Shape.js";
 
 
 /**
  * 
  */
-export class WebSVG_Polyline extends WebSVG_Element {
+export class WebSVG_Polyline extends WebSVG_Shape {
 
 
 
@@ -18,6 +19,7 @@ export class WebSVG_Polyline extends WebSVG_Element {
 
 		/* <polyline points="100,100 150,25 150,75 200,0" fill="none" stroke="black" /> */
 		this.SVG_node = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+		this.SVG_node.classList.add("websvg-shape");
 		this.setupStroke();
 		
     }
@@ -51,12 +53,14 @@ export class WebSVG_Polyline extends WebSVG_Element {
 
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} box 
+	 * @param {BoundingBox} boundingBox 
 	 */
-	updateBoundingBox(box){
-		const n = this.coordinates.length;
-		for(let i = 0; i<n; i+=2){
-			box.updateBoundingBox(this.coordinates[i+0], this.coordinates[i+1]);
+	updateBoundingBox(boundingBox){
+		if(this.isBoundingBoxRelevant){
+			const n = this.coordinates.length;
+			for(let i = 0; i<n; i+=2){
+				boundingBox.update(this.coordinates[i+0], this.coordinates[i+1]);
+			}
 		}
 	}
 }

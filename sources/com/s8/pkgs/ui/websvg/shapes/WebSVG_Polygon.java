@@ -1,7 +1,9 @@
-package com.s8.pkgs.ui.websvg;
+package com.s8.pkgs.ui.websvg.shapes;
 
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.SVG_Vector;
+import com.s8.pkgs.ui.websvg.style.Fill;
+import com.s8.pkgs.ui.websvg.style.Stroke;
 
 
 /**
@@ -9,7 +11,7 @@ import com.s8.pkgs.io.svg.SVG_Vector;
  * @author pierreconvert
  *
  */
-public class WebSVG_Polyline extends WebSVG_Element {
+public class WebSVG_Polygon extends WebSVG_Shape {
 	
 
 	/**
@@ -23,32 +25,10 @@ public class WebSVG_Polyline extends WebSVG_Element {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Polyline create(S8WebFront branch, 
-			double thickness,
-			WebSVG_StrokeSolidity solidity,
-			WebSVG_StrokeColor color,
-			float[] coordinates,
-			boolean isBoundingBoxUpdating) {
-		WebSVG_Polyline polyline = new WebSVG_Polyline(branch);
-		polyline.setStrokeColor(color);
-		polyline.setStrokeSolidity(solidity);
-		polyline.setStrokeThickness((float) thickness);
-		polyline.setCoordinates(coordinates);
-		polyline.isBoundingBoxRelevant(isBoundingBoxUpdating);
-		return polyline;
-	}
-	
-	
-	public static WebSVG_Polyline create(S8WebFront branch, 
-			double thickness,
-			WebSVG_StrokeSolidity solidity,
-			WebSVG_StrokeColor color,
-			SVG_Vector[] coordinates,
-			boolean isBoundingBoxUpdating) {
-		WebSVG_Polyline polyline = new WebSVG_Polyline(branch);
-		polyline.setStrokeColor(color);
-		polyline.setStrokeSolidity(solidity);
-		polyline.setStrokeThickness((float) thickness);
+	public static WebSVG_Polygon create(S8WebFront branch, Stroke stroke, Fill fill,
+			float[] coordinates, boolean isBoundingBoxUpdating) {
+		WebSVG_Polygon polyline = new WebSVG_Polygon(branch);
+		polyline.setStroke(stroke);
 		polyline.setCoordinates(coordinates);
 		polyline.isBoundingBoxRelevant(isBoundingBoxUpdating);
 		return polyline;
@@ -61,8 +41,8 @@ public class WebSVG_Polyline extends WebSVG_Element {
 	 * @param coordinates
 	 * @return
 	 */
-	public static WebSVG_Polyline create(S8WebFront branch, float[] coordinates) {
-		WebSVG_Polyline line = new WebSVG_Polyline(branch);
+	public static WebSVG_Polygon create(S8WebFront branch, float[] coordinates) {
+		WebSVG_Polygon line = new WebSVG_Polygon(branch);
 		line.setCoordinates(coordinates);
 		return line;
 	}
@@ -72,8 +52,8 @@ public class WebSVG_Polyline extends WebSVG_Element {
 	 * 
 	 * @param branch
 	 */
-	public WebSVG_Polyline(S8WebFront branch) {
-		super(branch, WebSources.WEBPATH + "/WebSVG_Polyline");
+	public WebSVG_Polygon(S8WebFront branch) {
+		super(branch, "/WebSVG_Polygon");
 	}
 	
 
