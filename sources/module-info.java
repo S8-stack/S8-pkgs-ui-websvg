@@ -8,7 +8,6 @@ module com.s8.pkgs.ui.websvg {
 	
 	exports com.s8.pkgs.ui.websvg;
 	
-	exports com.s8.pkgs.ui.websvg.charts;
 	exports com.s8.pkgs.ui.websvg.shapes;
 	exports com.s8.pkgs.ui.websvg.style;
 	
