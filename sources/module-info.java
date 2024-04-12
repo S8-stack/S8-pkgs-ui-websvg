@@ -16,5 +16,6 @@ module com.s8.pkgs.ui.websvg {
 	requires transitive com.s8.pkgs.io.svg;
 	requires transitive com.s8.pkgs.ui.carbide;
 	requires transitive com.s8.build;
+	requires transitive model;
 	
 }

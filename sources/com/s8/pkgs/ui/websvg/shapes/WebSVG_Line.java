@@ -1,5 +1,6 @@
 package com.s8.pkgs.ui.websvg.shapes;
 
+import com.qx.core.maths.space2d.MathVector2d;
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.SVG_Vector;
 import com.s8.pkgs.ui.websvg.style.Stroke;
@@ -30,6 +31,11 @@ public class WebSVG_Line extends WebSVG_Shape {
 		circle.setCoordinates((float) x0, (float) y0, (float) x1, (float) y1);
 		circle.isBoundingBoxRelevant(isBoundingBoxUpdating);
 		return circle;
+	}
+	
+	public static WebSVG_Line create(S8WebFront branch, Stroke stroke,
+			MathVector2d p0, MathVector2d p1, boolean isBoundingBoxUpdating) {
+		return create(branch, stroke, p0.x, p0.y, p1.x, p1.y, isBoundingBoxUpdating);
 	}
 	
 
