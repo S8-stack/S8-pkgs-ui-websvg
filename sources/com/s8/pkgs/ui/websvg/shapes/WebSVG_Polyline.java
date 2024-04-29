@@ -1,8 +1,8 @@
 package com.s8.pkgs.ui.websvg.shapes;
 
 import com.s8.api.web.S8WebFront;
-import com.s8.pkgs.io.svg.SVG_Vector;
-import com.s8.pkgs.ui.websvg.style.Stroke;
+import com.s8.pkgs.io.svg.maths.SVG_Vector;
+import com.s8.pkgs.io.svg.styles.SVG_Stroke;
 
 
 /**
@@ -16,19 +16,31 @@ public class WebSVG_Polyline extends WebSVG_Shape {
 	/**
 	 * 
 	 * @param branch
-	 * @param color
-	 * @param solidity
-	 * @param thickness
-	 * @param xc
-	 * @param yc
-	 * @param r
+	 * @param stroke
+	 * @param coordinates
+	 * @param isBoundingBoxUpdating
 	 * @return
 	 */
-	public static WebSVG_Polyline create(S8WebFront branch, Stroke stroke,
-			float[] coordinates, boolean isBoundingBoxUpdating) {
+	public static WebSVG_Polyline create(S8WebFront branch, SVG_Stroke stroke, float[] coordinates, boolean isBoundingBoxUpdating) {
 		WebSVG_Polyline polyline = new WebSVG_Polyline(branch);
 		polyline.setStroke(stroke);
 		polyline.setCoordinates(coordinates);
+		polyline.isBoundingBoxRelevant(isBoundingBoxUpdating);
+		return polyline;
+	}
+	
+	/**
+	 * 
+	 * @param branch
+	 * @param stroke
+	 * @param coordinates
+	 * @param isBoundingBoxUpdating
+	 * @return
+	 */
+	public static WebSVG_Polyline create(S8WebFront branch, SVG_Stroke stroke, SVG_Vector[] points, boolean isBoundingBoxUpdating) {
+		WebSVG_Polyline polyline = new WebSVG_Polyline(branch);
+		polyline.setStroke(stroke);
+		polyline.setCoordinates(points);
 		polyline.isBoundingBoxRelevant(isBoundingBoxUpdating);
 		return polyline;
 	}

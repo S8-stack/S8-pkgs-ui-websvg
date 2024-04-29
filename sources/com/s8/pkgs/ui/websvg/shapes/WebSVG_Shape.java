@@ -1,14 +1,14 @@
 package com.s8.pkgs.ui.websvg.shapes;
 
 import com.s8.api.web.S8WebFront;
+import com.s8.pkgs.io.svg.styles.Fill;
+import com.s8.pkgs.io.svg.styles.FillColor;
+import com.s8.pkgs.io.svg.styles.SVG_Stroke;
+import com.s8.pkgs.io.svg.styles.SVG_StrokeColor;
+import com.s8.pkgs.io.svg.styles.SVG_StrokeSolidity;
+import com.s8.pkgs.io.svg.styles.SVG_StrokeThickness;
 import com.s8.pkgs.ui.websvg.WebSVG_Element;
 import com.s8.pkgs.ui.websvg.WebSources;
-import com.s8.pkgs.ui.websvg.style.Fill;
-import com.s8.pkgs.ui.websvg.style.FillColor;
-import com.s8.pkgs.ui.websvg.style.Stroke;
-import com.s8.pkgs.ui.websvg.style.StrokeColor;
-import com.s8.pkgs.ui.websvg.style.StrokeSolidity;
-import com.s8.pkgs.ui.websvg.style.StrokeThickness;
 
 public class WebSVG_Shape extends WebSVG_Element {
 	
@@ -27,7 +27,7 @@ public class WebSVG_Shape extends WebSVG_Element {
 	 * 
 	 * @param stroke
 	 */
-	public void setStroke(Stroke stroke) {
+	public void setStroke(SVG_Stroke stroke) {
 		setStrokeSolidity(stroke.solidity);
 		setStrokeThickness(stroke.thickness);
 		setStrokeColor(stroke.color);
@@ -38,7 +38,7 @@ public class WebSVG_Shape extends WebSVG_Element {
 	 * 
 	 * @param solidity
 	 */
-	public void setStrokeSolidity(StrokeSolidity solidity) {
+	public void setStrokeSolidity(SVG_StrokeSolidity solidity) {
 		vertex.outbound().setUInt8Field("strokeSolidity", solidity.code);
 	}
 	
@@ -47,7 +47,7 @@ public class WebSVG_Shape extends WebSVG_Element {
 	 * 
 	 * @param color
 	 */
-	public void setStrokeColor(StrokeColor color) {
+	public void setStrokeColor(SVG_StrokeColor color) {
 		vertex.outbound().setUInt8Field("strokeColor", color.code);
 	}
 	
@@ -56,7 +56,7 @@ public class WebSVG_Shape extends WebSVG_Element {
 	 * Style: 
 	 * @param thickness
 	 */
-	public void setStrokeThickness(StrokeThickness thickness) {
+	public void setStrokeThickness(SVG_StrokeThickness thickness) {
 		vertex.outbound().setUInt8Field("strokeThickness", thickness.code);
 	}
 	

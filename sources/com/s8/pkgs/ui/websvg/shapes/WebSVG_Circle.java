@@ -1,10 +1,9 @@
 package com.s8.pkgs.ui.websvg.shapes;
 
-import com.qx.core.maths.space2d.MathVector2d;
 import com.s8.api.web.S8WebFront;
-import com.s8.pkgs.io.svg.SVG_Vector;
-import com.s8.pkgs.ui.websvg.style.Fill;
-import com.s8.pkgs.ui.websvg.style.Stroke;
+import com.s8.pkgs.io.svg.maths.SVG_Vector;
+import com.s8.pkgs.io.svg.styles.Fill;
+import com.s8.pkgs.io.svg.styles.SVG_Stroke;
 
 /**
  * 
@@ -25,9 +24,9 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param isBoundingBoxUpdating
 	 * @return
 	 */
-	public static WebSVG_Circle createCircle(S8WebFront branch, Stroke stroke,
-			MathVector2d center, double r, boolean isBoundingBoxUpdating) {
-		return createCircle(branch, stroke, center.x, center.y, r, isBoundingBoxUpdating);
+	public static WebSVG_Circle createCircle(S8WebFront branch, SVG_Stroke stroke,
+			SVG_Vector center, double r, boolean isBoundingBoxUpdating) {
+		return createCircle(branch, stroke, center.getX(), center.getY(), r, isBoundingBoxUpdating);
 	}
 	
 	
@@ -42,7 +41,7 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle createCircle(S8WebFront branch, Stroke stroke,
+	public static WebSVG_Circle createCircle(S8WebFront branch, SVG_Stroke stroke,
 			double xc, double yc, 
 			double r,
 			boolean isBoundingBoxUpdating) {
@@ -65,7 +64,7 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle createRound(S8WebFront branch, Stroke stroke, Fill fill,
+	public static WebSVG_Circle createRound(S8WebFront branch, SVG_Stroke stroke, Fill fill,
 			SVG_Vector center,double r,
 			boolean isBoundingBoxUpdating) {
 		WebSVG_Circle shape = new WebSVG_Circle(branch);

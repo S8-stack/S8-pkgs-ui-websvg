@@ -1,9 +1,8 @@
 package com.s8.pkgs.ui.websvg.shapes;
 
-import com.qx.core.maths.space2d.MathVector2d;
 import com.s8.api.web.S8WebFront;
-import com.s8.pkgs.io.svg.SVG_Vector;
-import com.s8.pkgs.ui.websvg.style.Stroke;
+import com.s8.pkgs.io.svg.maths.SVG_Vector;
+import com.s8.pkgs.io.svg.styles.SVG_Stroke;
 
 /**
  * 
@@ -24,7 +23,7 @@ public class WebSVG_Line extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Line create(S8WebFront branch, Stroke stroke,
+	public static WebSVG_Line create(S8WebFront branch, SVG_Stroke stroke,
 			double x0, double y0, double x1, double y1, boolean isBoundingBoxUpdating) {
 		WebSVG_Line circle = new WebSVG_Line(branch);
 		circle.setStroke(stroke);
@@ -33,9 +32,9 @@ public class WebSVG_Line extends WebSVG_Shape {
 		return circle;
 	}
 	
-	public static WebSVG_Line create(S8WebFront branch, Stroke stroke,
-			MathVector2d p0, MathVector2d p1, boolean isBoundingBoxUpdating) {
-		return create(branch, stroke, p0.x, p0.y, p1.x, p1.y, isBoundingBoxUpdating);
+	public static WebSVG_Line create(S8WebFront branch, SVG_Stroke stroke,
+			SVG_Vector p0, SVG_Vector p1, boolean isBoundingBoxUpdating) {
+		return create(branch, stroke, p0.getX(), p0.getY(), p1.getX(), p1.getY(), isBoundingBoxUpdating);
 	}
 	
 
