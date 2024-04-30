@@ -17,16 +17,16 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	
 	/**
 	 * 
-	 * @param branch
+	 * @param front
 	 * @param stroke
 	 * @param center
 	 * @param r
 	 * @param isBoundingBoxUpdating
 	 * @return
 	 */
-	public static WebSVG_Circle createCircle(S8WebFront branch, SVG_Stroke stroke,
+	public static WebSVG_Circle createCircle(S8WebFront front, SVG_Stroke stroke,
 			SVG_Vector center, double r, boolean isBoundingBoxUpdating) {
-		return createCircle(branch, stroke, center.getX(), center.getY(), r, isBoundingBoxUpdating);
+		return createCircle(front, stroke, center.getX(), center.getY(), r, isBoundingBoxUpdating);
 	}
 	
 	
