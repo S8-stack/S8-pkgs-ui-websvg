@@ -201,8 +201,8 @@ WebSVG.getStrokeSolidityByCode = function(code) {
 WebSVG.getStrokeColorByCode = function(code) {
 	switch(code) {
 		default : 
-		case 0x0 : return "rgba(0, 0, 0, 1.00)"; /* black */
-		case 0x1 : return "rgba(255, 255, 255, 1.00)"; /* white */
+		case 0x2 : return "rgba(0, 0, 0, 1.00)"; /* black */
+		case 0x4 : return "rgba(255, 255, 255, 1.00)"; /* white */
 		case 0x12 : return "rgba(255, 0, 0, 1.00)"; /* red */
 		case 0x13 : return "rgba(0, 255, 0, 1.00)"; /* green */
 		case 0x14 : return "rgba(0, 0, 255, 1.00)"; /* blue */
