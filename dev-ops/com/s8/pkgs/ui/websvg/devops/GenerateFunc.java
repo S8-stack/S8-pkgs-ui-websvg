@@ -1,6 +1,6 @@
 package com.s8.pkgs.ui.websvg.devops;
 
-import com.s8.build.js.JS_Generator;
+import com.s8.build.js.JS_CodeGenerator;
 import com.s8.pkgs.io.svg.styles.FillColor;
 import com.s8.pkgs.io.svg.styles.SVG_StrokeColor;
 import com.s8.pkgs.io.svg.styles.SVG_StrokeSolidity;
@@ -10,7 +10,7 @@ public class GenerateFunc {
 
 	public static void main(String[] args) {
 		
-		JS_Generator gen = new JS_Generator();
+		JS_CodeGenerator gen = new JS_CodeGenerator();
 		SVG_StrokeThickness.JS_generateFunction(gen);
 		gen.skipLines(2);
 		SVG_StrokeSolidity.JS_generateFunction(gen);
