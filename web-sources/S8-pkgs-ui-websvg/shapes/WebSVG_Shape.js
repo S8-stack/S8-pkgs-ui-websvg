@@ -3,7 +3,7 @@
 
 import { S8WebFront } from "/S8-pkgs-ui-carbide/S8WebFront.js";
 
-import { WebSVG } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { WebSVG, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
 
 
@@ -24,6 +24,14 @@ export class WebSVG_Shape extends WebSVG_Element {
 	strokeSolidityStyle = WebSVG.STROKE_SOLIDITY_DEFAULT;
 
 
+	/**
+	 * @type{number}
+	 * -1 : disabled
+	 */
+	strokeThickness = -1;
+
+	strokeSolidity = "SOLID";
+
 
 	constructor() {
 		super();
@@ -31,11 +39,22 @@ export class WebSVG_Shape extends WebSVG_Element {
 
 
 
-	setupStroke() {
+	setDefaultStroke() {
 		this.SVG_node.classList.add("websvg-element");
 		this.SVG_node.setAttribute("stroke", "black");
 		this.SVG_node.setAttribute("stroke-width", "1");
 	}
+
+
+	/**
+	 * 
+	 * @param {WebSVG_ViewPort} viewPort 
+	 */
+	updateStroke(viewPort) {
+		let thickness = 0.12 * viewPort.sTranform(this.strokeThickness);
+		this.SVG_node.setAttribute("stroke-width", thickness);
+	}
+
 
 
 	/**
@@ -67,7 +86,9 @@ export class WebSVG_Shape extends WebSVG_Element {
 	 */
 	S8_set_strokeThickness(code) {
 		if(code != WebSVG.DISABLED_FEATURE_CODE){
-			this.SVG_node.setAttribute("stroke-width", WebSVG.getStrokeThicknessByCode(code));
+			let thickness = WebSVG.getStrokeThicknessByCode(code);
+			this.strokeThickness = thickness;
+			this.SVG_node.setAttribute("stroke-width", thickness);
 		}
 		else{
 			this.SVG_node.removeAttribute("stroke-width");
@@ -95,7 +116,7 @@ export class WebSVG_Shape extends WebSVG_Element {
 	 */
 	S8_set_fillColor(code) {
 		if(code != WebSVG.DISABLED_FEATURE_CODE){
-			this.SVG_node.setAttribute("fill", WebSVG.getStrokeColorByCode(code));
+			this.SVG_node.setAttribute("fill", WebSVG.getFillColorByCode(code));
 		}
 		else{
 			this.SVG_node.setAttribute("fill", "none");

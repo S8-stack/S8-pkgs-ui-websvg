@@ -20,7 +20,7 @@ export class WebSVG_Polygon extends WebSVG_Shape {
 		/* <polyline points="100,100 150,25 150,75 200,0" fill="none" stroke="black" /> */
 		this.SVG_node = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
 		this.SVG_node.classList.add("websvg-shape");
-		this.setupStroke();
+		this.setDefaultStroke();
 
 	}
 
@@ -40,6 +40,8 @@ export class WebSVG_Polygon extends WebSVG_Shape {
 	 * @param {WebSVG_ViewPort} viewPort 
 	 */
 	redraw(viewPort) {
+		this.updateStroke(viewPort);
+
 		const nPoints = this.coordinates.length / 2;
 		const points = new Array(nPoints);
 		for (let i = 0; i < nPoints; i++) {

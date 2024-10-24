@@ -130,6 +130,15 @@ export class WebSVG_ViewPort {
         return x * this.scalingFactor + this.xOffset;
     }
 
+     /**
+     * 
+     * @param {number} x 
+     * @returns {number}
+     */
+    dxTranform(dx) {
+        return dx * this.scalingFactor;
+    }
+
 
     /**
      * 
@@ -138,6 +147,15 @@ export class WebSVG_ViewPort {
      */
     yTranform(y) {
         return this.height - (y * this.scalingFactor + this.yOffset);
+    }
+
+     /**
+     * 
+     * @param {number} y 
+     * @returns {number}
+     */
+    dyTranform(dy) {
+        return - dy * this.scalingFactor;
     }
 
     /**

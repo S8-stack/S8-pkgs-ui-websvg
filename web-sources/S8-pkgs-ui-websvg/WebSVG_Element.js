@@ -43,7 +43,7 @@ export class WebSVG_Element extends NeObject {
 
 
 
-	setupStroke() {
+	setDefaultStroke() {
 		this.SVG_node.setAttribute("stroke", "black");
 		this.SVG_node.setAttribute("stroke-width", "1");
 	}

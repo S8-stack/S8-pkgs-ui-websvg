@@ -8,7 +8,11 @@ module com.s8.pkgs.ui.websvg {
 	
 	exports com.s8.pkgs.ui.websvg;
 	
+
+	exports com.s8.pkgs.ui.websvg.transform;
+	
 	exports com.s8.pkgs.ui.websvg.shapes;
+	exports com.s8.pkgs.ui.websvg.shapes.path;
 	
 	requires transitive com.s8.api;
 	

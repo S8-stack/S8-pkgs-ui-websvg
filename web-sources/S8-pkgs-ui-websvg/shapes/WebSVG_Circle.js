@@ -26,7 +26,7 @@ export class WebSVG_Circle extends WebSVG_Shape {
 		/*   <circle cx="50" cy="50" r="50" /> */
 		this.SVG_node = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 		this.SVG_node.classList.add("websvg-shape");
-		this.setupStroke();
+		this.setDefaultStroke();
 		
     }
 
@@ -56,6 +56,8 @@ export class WebSVG_Circle extends WebSVG_Shape {
 	 * @param {WebSVG_ViewPort} viewPort 
 	 */
 	redraw(viewPort){
+		this.updateStroke(viewPort);
+
 		this.SVG_node.setAttribute("cx", viewPort.xTranform(this.xCenter).toPrecision(6));
 		this.SVG_node.setAttribute("cy", viewPort.yTranform(this.yCenter).toPrecision(6));
 		this.SVG_node.setAttribute("r", viewPort.sTranform(this.radius).toPrecision(6));

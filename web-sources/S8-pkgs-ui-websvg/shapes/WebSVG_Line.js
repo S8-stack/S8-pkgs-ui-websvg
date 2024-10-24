@@ -30,7 +30,7 @@ export class WebSVG_Line extends WebSVG_Shape {
 		/* <line x1="0" y1="80" x2="100" y2="20" stroke="black" /> */
 		this.SVG_node = document.createElementNS("http://www.w3.org/2000/svg", "line");
 		this.SVG_node.classList.add("websvg-shape");
-		this.setupStroke();
+		this.setDefaultStroke();
 
     }
 
@@ -53,6 +53,8 @@ export class WebSVG_Line extends WebSVG_Shape {
 	 * @param {WebSVG_ViewPort} viewPort 
 	 */
 	redraw(viewPort){
+		this.updateStroke(viewPort);
+
 		this.SVG_node.setAttribute("x1", viewPort.xTranform(this.x1).toPrecision(6));
 		this.SVG_node.setAttribute("y1", viewPort.yTranform(this.y1).toPrecision(6));
 

@@ -29,5 +29,9 @@ public class WebSVG_Canvas extends HTML_S8WebNode {
 		vertex.outbound().setObjectListField("elements", elements);
 	}
 	
+	public void setElements(WebSVG_Element... elements) {
+		vertex.outbound().setObjectListField("elements", elements);
+	}
+	
 
 }
