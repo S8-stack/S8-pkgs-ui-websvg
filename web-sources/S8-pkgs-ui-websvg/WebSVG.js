@@ -55,10 +55,13 @@ export class BoundingBox {
 }
 
 
+
+
+
 /**
  * 
  */
-export class WebSVG_ViewPort {
+export class WebSVG_Viewport {
 
     /**
      * 
@@ -168,6 +171,10 @@ export class WebSVG_ViewPort {
     }
 
 }
+
+
+
+
 
 
 WebSVG.DISABLED_FEATURE_CODE = 0x00;

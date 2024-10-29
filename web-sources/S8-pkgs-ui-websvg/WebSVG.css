@@ -1,4 +1,3 @@
-
 .websvg-canvas {
 	display: block;
 	/* width: 800px;
@@ -8,35 +7,51 @@
 /*
 .websvg-shape {
 	
-} */
+} 
+*/
 
+.websvg-clickable-group {
+	cursor: pointer;
+}
+
+.websvg-clickable-group:hover rect,
+.websvg-clickable-group:hover path,
+.websvg-clickable-group:hover circle {
+	fill: yellow;
+	cursor: pointer;
+}
+
+.websvg-clickable-group>g {
+	fill: green;
+}
 
 /* <stroke-color> */
 .websvg-stroke-color-red {
-    stroke: red;
+	stroke: red;
 }
 
 .websvg-stroke-color-blue {
-    stroke: blue;
+	stroke: blue;
 }
 
 .websvg-stroke-color-green {
-    stroke: green;
+	stroke: green;
 }
 
 .websvg-stroke-color-grey {
-    stroke: rgb(128, 128, 128);
+	stroke: rgb(128, 128, 128);
 }
 
 .websvg-stroke-color-black {
-    stroke: black;
+	stroke: black;
 }
+
 /* </stroke-color> */
 
 
 /* <stroke-solidity> */
 .websvg-stroke-solidity-solid {
-    stroke-dasharray: none;
+	stroke-dasharray: none;
 	fill: none;
 }
 
@@ -49,12 +64,13 @@
 	stroke-dasharray: 5, 2;
 	fill: none;
 }
+
 /* </stroke-solidity> */
 
 
 /* <stroke-thickness> */
 .websvg-stroke-thickness-thin {
-    stroke-width: 0.5px;
+	stroke-width: 0.5px;
 }
 
 .websvg-stroke-thickness-normal {
@@ -70,4 +86,3 @@
 }
 
 /* </stroke-thickness> */
-

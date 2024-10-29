@@ -5,7 +5,7 @@ import { NeObject } from "/S8-core-bohr-neon/NeObject.js";
 
 import { S8WebFront } from "/S8-pkgs-ui-carbide/S8WebFront.js";
 
-import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
 
 
@@ -27,9 +27,9 @@ export class WebSVG_Canvas extends NeObject {
 
 
     /**
-     * @type {WebSVG_ViewPort}
+     * @type {WebSVG_Viewport}
      */
-    viewPort = new WebSVG_ViewPort();
+    viewport = new WebSVG_Viewport();
 
     /**
      * @type{boolean}
@@ -50,7 +50,7 @@ export class WebSVG_Canvas extends NeObject {
         //this.canvasNode.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
       
         this.canvasNode.classList.add("websvg-canvas");
-        this.canvasNode.setAttribute("viewBox", `0 0 ${this.viewPort.width} ${this.viewPort.height}`);
+        this.canvasNode.setAttribute("viewBox", `0 0 ${this.viewport.width} ${this.viewport.height}`);
     }
 
 
@@ -58,6 +58,15 @@ export class WebSVG_Canvas extends NeObject {
         return this.canvasNode;
     }
 
+
+    /* <viewport> */
+    S8_set_viewportWidth(width){ this.viewport.width = width;  this.isRedrawingRequired = true; }
+    S8_set_viewportHeight(height){  this.viewport.height = height;  this.isRedrawingRequired = true; }
+    S8_set_viewportMarginTop(margin){  this.viewport.marginTop = margin;  this.isRedrawingRequired = true; }
+    S8_set_viewportMarginRight(margin){ this.viewport.marginRight = margin;  this.isRedrawingRequired = true; }
+    S8_set_viewportMarginBottom(margin){  this.viewport.marginBottom = margin;  this.isRedrawingRequired = true; }
+    S8_set_viewportMarginLeft(margin){  this.viewport.marginLeft = margin;  this.isRedrawingRequired = true; }
+    /* </viewport> */
 
     /**
      * 
@@ -89,13 +98,16 @@ export class WebSVG_Canvas extends NeObject {
         this.isRedrawingRequired = true;
     }
 
+
     /**
      * 
      */
     redraw() {
+        
+        this.canvasNode.setAttribute("viewBox", `0 0 ${this.viewport.width} ${this.viewport.height}`);
+
         if (this.elements != null) {
             
-
             /* update bounding box */
             const boundingBox = new BoundingBox();
             const nElements = this.elements.length;
@@ -107,14 +119,15 @@ export class WebSVG_Canvas extends NeObject {
             }
 
             /* rescale */
-            this.viewPort.rescale(boundingBox);
+            this.viewport.rescale(boundingBox);
 
             /* redraw */
             for(let i = 0; i<nElements; i++){
-                this.elements[i].redraw(this.viewPort);
+                this.elements[i].redraw(this.viewport);
             }
         }
     }
+
 
 
     S8_render() {
@@ -127,3 +140,5 @@ export class WebSVG_Canvas extends NeObject {
 
 	S8_dispose(){  /* nothing to dispose */ }
 }
+
+

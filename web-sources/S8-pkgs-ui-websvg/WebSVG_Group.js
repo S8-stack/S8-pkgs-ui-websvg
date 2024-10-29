@@ -1,11 +1,10 @@
 
 
 
-import { NeObject } from "/S8-core-bohr-neon/NeObject.js";
 
 import { S8WebFront } from "/S8-pkgs-ui-carbide/S8WebFront.js";
 
-import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
 
 
@@ -30,11 +29,11 @@ export class WebSVG_Group extends WebSVG_Element {
         super();
 
         this.SVG_node = document.createElementNS("http://www.w3.org/2000/svg", "g");
-	
+
     }
 
 
-    getEnvelope(){
+    getEnvelope() {
         return this.SVG_node;
     }
 
@@ -45,17 +44,17 @@ export class WebSVG_Group extends WebSVG_Element {
      */
     S8_set_elements(elements) {
         // clear canvas current nodes
-        while(this.SVG_node.hasChildNodes()){ this.SVG_node.removeChild(this.SVG_node.lastChild); }
+        while (this.SVG_node.hasChildNodes()) { this.SVG_node.removeChild(this.SVG_node.lastChild); }
 
         this.elements = elements;
 
         const nElements = this.elements.length;
 
         /* update bounding box of the view port */
-      
+
 
         let element;
-        for(let i = 0; i<nElements; i++){
+        for (let i = 0; i < nElements; i++) {
             element = elements[i];
 
             // append node
@@ -66,18 +65,39 @@ export class WebSVG_Group extends WebSVG_Element {
     }
 
 
+    S8_set_clickable(isClickable){
+        if(isClickable){
+            this.SVG_node.classList.add("websvg-clickable-group");
+        }
+        else{
+            this.SVG_node.classList.remove("websvg-clickable-group");
+        }
+    }
+
     /**
-	 * 
-	 * @param {BoundingBox} boundingBox 
-	 */
-	updateBoundingBox(boundingBox){
-		if(this.isBoundingBoxRelevant){
-			const n = this.elements.length;
-			for(let i = 0; i<n; i++){
-				this.elements[i].updateBoundingBox(boundingBox);
-			}
-		}
-	}
+     * 
+     * @param {BoundingBox} boundingBox 
+     */
+    updateBoundingBox(boundingBox) {
+        if (this.isBoundingBoxRelevant) {
+            const n = this.elements.length;
+            for (let i = 0; i < n; i++) {
+                this.elements[i].updateBoundingBox(boundingBox);
+            }
+        }
+    }
+
+
+    /**
+     * 
+     * @param {WebSVG_Viewport} viewport 
+     */
+    redraw(viewport) {
+        const n = this.elements.length;
+        for (let i = 0; i < n; i++) {
+            this.elements[i].redraw(viewport);
+        }
+    }
 
 
 
@@ -86,5 +106,5 @@ export class WebSVG_Group extends WebSVG_Element {
     }
 
 
-	S8_dispose(){  /* nothing to dispose */ }
+    S8_dispose() {  /* nothing to dispose */ }
 }

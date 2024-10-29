@@ -1,5 +1,5 @@
 
-import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Shape } from "./WebSVG_Shape.js";
 
 
@@ -53,14 +53,14 @@ export class WebSVG_Circle extends WebSVG_Shape {
 	
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 */
-	redraw(viewPort){
-		this.updateStroke(viewPort);
+	redraw(viewport){
+		this.updateStroke(viewport);
 
-		this.SVG_node.setAttribute("cx", viewPort.xTranform(this.xCenter).toPrecision(6));
-		this.SVG_node.setAttribute("cy", viewPort.yTranform(this.yCenter).toPrecision(6));
-		this.SVG_node.setAttribute("r", viewPort.sTranform(this.radius).toPrecision(6));
+		this.SVG_node.setAttribute("cx", viewport.xTranform(this.xCenter).toPrecision(6));
+		this.SVG_node.setAttribute("cy", viewport.yTranform(this.yCenter).toPrecision(6));
+		this.SVG_node.setAttribute("r", viewport.sTranform(this.radius).toPrecision(6));
 	}
 
 

@@ -1,6 +1,6 @@
 
 
-import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Shape } from "./WebSVG_Shape.js";
 
 
@@ -50,16 +50,16 @@ export class WebSVG_Line extends WebSVG_Shape {
 
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 */
-	redraw(viewPort){
-		this.updateStroke(viewPort);
+	redraw(viewport){
+		this.updateStroke(viewport);
 
-		this.SVG_node.setAttribute("x1", viewPort.xTranform(this.x1).toPrecision(6));
-		this.SVG_node.setAttribute("y1", viewPort.yTranform(this.y1).toPrecision(6));
+		this.SVG_node.setAttribute("x1", viewport.xTranform(this.x1).toPrecision(6));
+		this.SVG_node.setAttribute("y1", viewport.yTranform(this.y1).toPrecision(6));
 
-		this.SVG_node.setAttribute("x2", viewPort.xTranform(this.x2).toPrecision(6));
-		this.SVG_node.setAttribute("y2", viewPort.yTranform(this.y2).toPrecision(6));
+		this.SVG_node.setAttribute("x2", viewport.xTranform(this.x2).toPrecision(6));
+		this.SVG_node.setAttribute("y2", viewport.yTranform(this.y2).toPrecision(6));
 	}
 
 

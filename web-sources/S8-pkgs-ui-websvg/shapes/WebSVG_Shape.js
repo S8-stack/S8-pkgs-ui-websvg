@@ -3,7 +3,7 @@
 
 import { S8WebFront } from "/S8-pkgs-ui-carbide/S8WebFront.js";
 
-import { WebSVG, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { WebSVG, WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Element } from "/S8-pkgs-ui-websvg/WebSVG_Element.js";
 
 
@@ -48,10 +48,10 @@ export class WebSVG_Shape extends WebSVG_Element {
 
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 */
-	updateStroke(viewPort) {
-		let thickness = 0.12 * viewPort.sTranform(this.strokeThickness);
+	updateStroke(viewport) {
+		let thickness = 0.12 * viewport.sTranform(this.strokeThickness);
 		this.SVG_node.setAttribute("stroke-width", thickness);
 	}
 

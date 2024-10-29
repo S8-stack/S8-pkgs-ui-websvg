@@ -1,5 +1,5 @@
 
-import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Shape } from "./WebSVG_Shape.js";
 
 import { SVG_Vec, WebSVG_PathElement } from "/S8-pkgs-ui-websvg/shapes/WebSVG_PathElement.js";
@@ -64,16 +64,16 @@ export class WebSVG_Path extends WebSVG_Shape {
 
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 */
-	redraw(viewPort) {
-		this.updateStroke(viewPort);
+	redraw(viewport) {
+		this.updateStroke(viewport);
 
 		let build = "";
 
 		const n = this.elements.length;
 		for(let i = 0; i<n; i++){
-			build = build + (i > 0 ? " " : "") + this.elements[i].SVG_generate(viewPort);
+			build = build + (i > 0 ? " " : "") + this.elements[i].SVG_generate(viewport);
 		}
 
 		this.SVG_node.setAttribute("d", build);

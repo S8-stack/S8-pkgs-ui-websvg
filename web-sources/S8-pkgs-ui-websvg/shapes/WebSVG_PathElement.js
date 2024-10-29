@@ -1,4 +1,4 @@
-import { WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 
 
 
@@ -53,7 +53,7 @@ class ClosePath extends WebSVG_PathElement {
 
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewPort 
 	 * @returns {String}
 	 */
 	SVG_generate(viewPort) {
@@ -82,13 +82,13 @@ class MoveTo_abs extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* M x y */
-		return "M " + viewPort.xTranform(this.x).toPrecision(6) +
-		 " " + viewPort.yTranform(this.y).toPrecision(6);
+		return "M " + viewport.xTranform(this.x).toPrecision(6) +
+		 " " + viewport.yTranform(this.y).toPrecision(6);
 	}
 }
 
@@ -114,14 +114,14 @@ class MoveTo_rel extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* m dx dy */
 		return "m " + 
-		viewPort.dxTranform(this.dx).toPrecision(6) + 
-		" " + viewPort.dyTranform(this.dy).toPrecision(6);
+		viewport.dxTranform(this.dx).toPrecision(6) + 
+		" " + viewport.dyTranform(this.dy).toPrecision(6);
 	}
 }
 
@@ -146,13 +146,13 @@ class Line_abs extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* L x y */
-		return "L " + viewPort.xTranform(this.x).toPrecision(6) + 
-		" " + viewPort.yTranform(this.y).toPrecision(6);
+		return "L " + viewport.xTranform(this.x).toPrecision(6) + 
+		" " + viewport.yTranform(this.y).toPrecision(6);
 	}
 }
 
@@ -176,14 +176,14 @@ class Line_rel extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* l dx dy */
 		return "l " + 
-		viewPort.dxTranform(this.dx).toPrecision(6) + " " + 
-		viewPort.dyTranform(this.dy).toPrecision(6);
+		viewport.dxTranform(this.dx).toPrecision(6) + " " + 
+		viewport.dyTranform(this.dy).toPrecision(6);
 	}
 }
 
@@ -207,12 +207,12 @@ class HorizontalLine_abs extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* H x y */
-		return "H " + viewPort.xTranform(this.x).toPrecision(6);
+		return "H " + viewport.xTranform(this.x).toPrecision(6);
 	}
 }
 
@@ -234,12 +234,12 @@ class HorizontalLine_rel extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* l dx dy */
-		return "h " + viewPort.dxTranform(this.dx).toPrecision(6);
+		return "h " + viewport.dxTranform(this.dx).toPrecision(6);
 	}
 }
 
@@ -263,12 +263,12 @@ class VerticalLine_abs extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* V y */
-		return "V " + viewPort.yTranform(this.y).toPrecision(6);
+		return "V " + viewport.yTranform(this.y).toPrecision(6);
 	}
 }
 
@@ -291,12 +291,12 @@ class VerticalLine_rel extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* v dy */
-		return "v " + viewPort.dyTranform(this.dy).toPrecision(6);
+		return "v " + viewport.dyTranform(this.dy).toPrecision(6);
 	}
 }
 
@@ -334,19 +334,19 @@ class Arc_abs extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* A rx ry x-axis-rotation large-arc-flag sweep-flag x y */
 		return "A " +
-			viewPort.sTranform(this.r).toPrecision(6) + " " +
-			viewPort.sTranform(this.r).toPrecision(6) + " " +
+			viewport.sTranform(this.r).toPrecision(6) + " " +
+			viewport.sTranform(this.r).toPrecision(6) + " " +
 			" 0 " +
 			(this.isLargeArc ? '1' : '0') + " " +
 			(this.isPositiveSweep ? '1' : '0') + " " +
-			viewPort.xTranform(this.x).toPrecision(6) + " " +
-			viewPort.yTranform(this.y).toPrecision(6);
+			viewport.xTranform(this.x).toPrecision(6) + " " +
+			viewport.yTranform(this.y).toPrecision(6);
 	}
 }
 
@@ -373,20 +373,20 @@ class Arc_rel extends WebSVG_PathElement {
 	}
 
 	/**
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 * @returns {string}
 	 */
-	SVG_generate(viewPort) {
+	SVG_generate(viewport) {
 		/* a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy */
-		let r2 = viewPort.sTranform(this.r);
+		let r2 = viewport.sTranform(this.r);
 		return "a " +
 			r2.toPrecision(6) + " " +
 			r2.toPrecision(6) + " " +
 			" 0 " +
 			(this.isLargeArc ? '1' : '0') + " " +
 			(this.isPositiveSweep ? '1' : '0') + " " +
-			viewPort.dxTranform(this.dx).toPrecision(6) + " " +
-			viewPort.dyTranform(this.dy).toPrecision(6);
+			viewport.dxTranform(this.dx).toPrecision(6) + " " +
+			viewport.dyTranform(this.dy).toPrecision(6);
 	}
 }
 

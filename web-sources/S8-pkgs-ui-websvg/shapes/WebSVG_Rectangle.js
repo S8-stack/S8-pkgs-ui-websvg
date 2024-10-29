@@ -1,5 +1,5 @@
 
-import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Shape } from "./WebSVG_Shape.js";
 
 
@@ -82,17 +82,17 @@ export class WebSVG_Rectangle extends WebSVG_Shape {
 	
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 */
-	redraw(viewPort){
-		this.updateStroke(viewPort);
+	redraw(viewport){
+		this.updateStroke(viewport);
 
-		this.SVG_node.setAttribute("x", viewPort.xTranform(this.xBottomLeftCorner).toPrecision(6));
-		this.SVG_node.setAttribute("y", viewPort.yTranform(this.yBottomLeftCorner).toPrecision(6));
-		this.SVG_node.setAttribute("width", viewPort.sTranform(this.width).toPrecision(6));
-		this.SVG_node.setAttribute("height", viewPort.sTranform(this.height).toPrecision(6));
+		this.SVG_node.setAttribute("x", viewport.xTranform(this.xBottomLeftCorner).toPrecision(6));
+		this.SVG_node.setAttribute("y", viewport.yTranform(this.yBottomLeftCorner).toPrecision(6));
+		this.SVG_node.setAttribute("width", viewport.sTranform(this.width).toPrecision(6));
+		this.SVG_node.setAttribute("height", viewport.sTranform(this.height).toPrecision(6));
 		if(this.hasRoundedCorners){
-			this.SVG_node.setAttribute("r", viewPort.sTranform(this.radius).toPrecision(6));
+			this.SVG_node.setAttribute("r", viewport.sTranform(this.radius).toPrecision(6));
 		}
 	}
 

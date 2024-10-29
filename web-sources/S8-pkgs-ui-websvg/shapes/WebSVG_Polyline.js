@@ -1,5 +1,5 @@
 
-import { BoundingBox, WebSVG_ViewPort } from "/S8-pkgs-ui-websvg/WebSVG.js";
+import { BoundingBox, WebSVG_Viewport } from "/S8-pkgs-ui-websvg/WebSVG.js";
 import { WebSVG_Shape } from "./WebSVG_Shape.js";
 
 
@@ -37,16 +37,16 @@ export class WebSVG_Polyline extends WebSVG_Shape {
 	
 	/**
 	 * 
-	 * @param {WebSVG_ViewPort} viewPort 
+	 * @param {WebSVG_Viewport} viewport 
 	 */
-	redraw(viewPort){
-		this.updateStroke(viewPort);
+	redraw(viewport){
+		this.updateStroke(viewport);
 
 		const nPoints = this.coordinates.length / 2;
 		const points = new Array(nPoints);
 		for(let i = 0; i<nPoints; i++){
-			const x = viewPort.xTranform(this.coordinates[2*i+0]);
-			const y = viewPort.yTranform(this.coordinates[2*i+1]);
+			const x = viewport.xTranform(this.coordinates[2*i+0]);
+			const y = viewport.yTranform(this.coordinates[2*i+1]);
 			points[i] = `${x.toPrecision(6)},${y.toPrecision(6)}`;
 		}
 		this.SVG_node.setAttribute("points", points.join(' '));
