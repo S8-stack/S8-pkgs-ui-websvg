@@ -1,16 +1,19 @@
-package com.s8.pkgs.ui.websvg.shapes;
+package com.s8.pkgs.ui.websvg.model.shapes;
 
+import com.s8.api.annotations.S8Field;
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.maths.SVG_Vector;
 import com.s8.pkgs.io.svg.styles.SVG_Fill;
 import com.s8.pkgs.io.svg.styles.SVG_Stroke;
+import com.s8.pkgs.ui.websvg.shapes.WebSVG_Circle;
+import com.s8.pkgs.ui.websvg.shapes.WebSVG_Shape;
 
 /**
  * 
  * @author pierreconvert
  *
  */
-public class WebSVG_Circle extends WebSVG_Shape {
+public class WebSVG_CircleModel extends WebSVG_ShapeModel {
 
 	
 
@@ -24,9 +27,9 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param isBoundingBoxUpdating
 	 * @return
 	 */
-	public static WebSVG_Circle createCircle(S8WebFront front, SVG_Stroke stroke,
+	public static WebSVG_CircleModel createCircle(SVG_Stroke stroke,
 			SVG_Vector center, double r, boolean isBoundingBoxUpdating) {
-		return createCircle(front, stroke, center.getX(), center.getY(), r, isBoundingBoxUpdating);
+		return createCircle(stroke, center.getX(), center.getY(), r, isBoundingBoxUpdating);
 	}
 	
 	
@@ -41,11 +44,11 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle createCircle(S8WebFront branch, SVG_Stroke stroke,
+	public static WebSVG_CircleModel createCircle(SVG_Stroke stroke,
 			double xc, double yc, 
 			double r,
 			boolean isBoundingBoxUpdating) {
-		WebSVG_Circle circle = new WebSVG_Circle(branch);
+		WebSVG_CircleModel circle = new WebSVG_CircleModel();
 		circle.setStroke(stroke);
 		circle.setCenter(xc, yc);
 		circle.setRadius(r);
@@ -64,10 +67,10 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Circle createRound(S8WebFront branch, SVG_Stroke stroke, SVG_Fill fill,
+	public static WebSVG_CircleModel createRound(SVG_Stroke stroke, SVG_Fill fill,
 			SVG_Vector center,double r,
 			boolean isBoundingBoxUpdating) {
-		WebSVG_Circle shape = new WebSVG_Circle(branch);
+		WebSVG_CircleModel shape = new WebSVG_CircleModel();
 		shape.setStroke(stroke);
 		shape.setFill(fill);
 		shape.setCenter(center);
@@ -76,10 +79,21 @@ public class WebSVG_Circle extends WebSVG_Shape {
 		return shape;
 	}
 
+	
+	
+	
 
-	public WebSVG_Circle(S8WebFront front) {
-		super(front, "/WebSVG_Circle");
-	}
+
+
+	public @S8Field(name = "center-x") double xCenter;
+
+	public @S8Field(name = "center-y") double yCenter;
+
+	public @S8Field(name = "radius") double radius;
+
+	
+	/** S8 constructor */
+	public WebSVG_CircleModel() { super(); }
 
 	
 	/**
@@ -87,31 +101,14 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param point
 	 */
 	public void setCenter(SVG_Vector point) {
-		vertex.outbound().setFloat32ArrayField("center", new float[] {
-				(float) point.getX(), (float) point.getY()
-		});
+		this.xCenter = point.getX();
+		this.yCenter = point.getY();
 	}
 	
-
-	public void setCenter(float x0, float y0) {
-		vertex.outbound().setFloat32ArrayField("center", new float[] { x0, y0});
-	}
-	
-	public void setCenter(float[] coordinates) {
-		vertex.outbound().setFloat32ArrayField("center", coordinates);
-	}
 	
 	public void setCenter(double x0, double y0) {
-		setCenter(new float[] { (float) x0, (float) y0});
-	}
-	
-	
-	/**
-	 * 
-	 * @param radius
-	 */
-	public void setRadius(float radius) {
-		vertex.outbound().setFloat32Field("radius", radius);
+		this.xCenter = x0;
+		this.yCenter = y0;
 	}
 	
 	
@@ -120,8 +117,22 @@ public class WebSVG_Circle extends WebSVG_Shape {
 	 * @param radius
 	 */
 	public void setRadius(double radius) {
-		setRadius((float) radius);
+		this.radius = radius;
 	}
+
+
+	@Override
+	public WebSVG_Shape createWeb(S8WebFront front) {
+		WebSVG_Circle circle = new WebSVG_Circle(front);
+		circle.setCenter(xCenter, yCenter);
+		circle.setRadius(radius);
+		
+		applyStyle(circle);
+		applyProperties(circle);
+		
+		return circle;
+	}
+	
 
 
 

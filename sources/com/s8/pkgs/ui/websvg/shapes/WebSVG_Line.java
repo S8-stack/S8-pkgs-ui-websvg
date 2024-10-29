@@ -28,7 +28,7 @@ public class WebSVG_Line extends WebSVG_Shape {
 		WebSVG_Line circle = new WebSVG_Line(branch);
 		circle.setStroke(stroke);
 		circle.setCoordinates((float) x0, (float) y0, (float) x1, (float) y1);
-		circle.isBoundingBoxRelevant(isBoundingBoxUpdating);
+		circle.setBoundingBoxRelevant(isBoundingBoxUpdating);
 		return circle;
 	}
 	
@@ -46,8 +46,8 @@ public class WebSVG_Line extends WebSVG_Shape {
 	}
 	
 	
-	public WebSVG_Line(S8WebFront branch) {
-		super(branch, "/WebSVG_Line");
+	public WebSVG_Line(S8WebFront front) {
+		super(front, "/WebSVG_Line");
 	}
 	
 	
@@ -61,6 +61,22 @@ public class WebSVG_Line extends WebSVG_Shape {
 	 */
 	public void setCoordinates(float x0, float y0, float x1, float y1) {
 		setCoordinates(new float[] { x0, y0, x1, y1});
+	}
+	
+	
+	/**
+	 * 
+	 * @param x0
+	 * @param y0
+	 * @param x1
+	 * @param y1
+	 */
+	public void setCoordinates(double x0, double y0, double x1, double y1) {
+		setCoordinates(new float[] { 
+				(float) x0, 
+				(float) y0,
+				(float) x1, 
+				(float) y1});
 	}
 	
 	/**

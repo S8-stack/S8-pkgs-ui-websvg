@@ -2,7 +2,7 @@ package com.s8.pkgs.ui.websvg.shapes;
 
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.maths.SVG_Vector;
-import com.s8.pkgs.io.svg.styles.Fill;
+import com.s8.pkgs.io.svg.styles.SVG_Fill;
 import com.s8.pkgs.io.svg.styles.SVG_Stroke;
 
 /**
@@ -25,7 +25,7 @@ public class WebSVG_Rectangle extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Rectangle create(S8WebFront branch, SVG_Stroke stroke, Fill fill,
+	public static WebSVG_Rectangle create(S8WebFront branch, SVG_Stroke stroke, SVG_Fill fill,
 			double x, double y, double width, double height, 
 			boolean isBoundingBoxUpdating) {
 		WebSVG_Rectangle shape = new WebSVG_Rectangle(branch);
@@ -34,7 +34,7 @@ public class WebSVG_Rectangle extends WebSVG_Shape {
 		shape.setTopLeftCorner(x, y);
 		shape.setWidth(width);
 		shape.setHeight(height);
-		shape.isBoundingBoxRelevant(isBoundingBoxUpdating);
+		shape.setBoundingBoxRelevant(isBoundingBoxUpdating);
 		return shape;
 	}
 	
@@ -49,7 +49,7 @@ public class WebSVG_Rectangle extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Rectangle createRound(S8WebFront branch, SVG_Stroke stroke, Fill fill,
+	public static WebSVG_Rectangle createRound(S8WebFront branch, SVG_Stroke stroke, SVG_Fill fill,
 			double x, double y, double width, double height, double radius,
 			boolean isBoundingBoxUpdating) {
 		WebSVG_Rectangle shape = new WebSVG_Rectangle(branch);
@@ -59,13 +59,13 @@ public class WebSVG_Rectangle extends WebSVG_Shape {
 		shape.setWidth(width);
 		shape.setHeight(height);
 		shape.setRadius(radius);
-		shape.isBoundingBoxRelevant(isBoundingBoxUpdating);
+		shape.setBoundingBoxRelevant(isBoundingBoxUpdating);
 		return shape;
 	}
 
 
-	public WebSVG_Rectangle(S8WebFront branch) {
-		super(branch, "/WebSVG_Rectangle");
+	public WebSVG_Rectangle(S8WebFront front) {
+		super(front, "/WebSVG_Rectangle");
 	}
 
 	

@@ -10,7 +10,7 @@ public class WebSVG_Element extends S8WebObject {
 	}
 	
 	
-	public void isBoundingBoxRelevant(boolean state) {
+	public void setBoundingBoxRelevant(boolean state) {
 		vertex.outbound().setBool8Field("isBoundingBoxRelevant", state);
 	}
 	

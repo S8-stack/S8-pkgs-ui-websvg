@@ -28,5 +28,14 @@ public class WebSVG_Group extends WebSVG_Element {
 		vertex.outbound().setObjectListField("elements", elements);
 	}
 	
+	public void setElements(WebSVG_Element[] elements) {
+		vertex.outbound().setObjectListField("elements", elements);
+	}
+	
+	
+	public void setClickable(boolean isClickable) {
+		vertex.outbound().setBool8Field("clickable", isClickable);
+	}
+	
 
 }

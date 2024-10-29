@@ -2,7 +2,7 @@ package com.s8.pkgs.ui.websvg.shapes;
 
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.maths.SVG_Vector;
-import com.s8.pkgs.io.svg.styles.Fill;
+import com.s8.pkgs.io.svg.styles.SVG_Fill;
 import com.s8.pkgs.io.svg.styles.SVG_Stroke;
 
 
@@ -25,12 +25,12 @@ public class WebSVG_Polygon extends WebSVG_Shape {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_Polygon create(S8WebFront branch, SVG_Stroke stroke, Fill fill,
+	public static WebSVG_Polygon create(S8WebFront branch, SVG_Stroke stroke, SVG_Fill fill,
 			float[] coordinates, boolean isBoundingBoxUpdating) {
 		WebSVG_Polygon polyline = new WebSVG_Polygon(branch);
 		polyline.setStroke(stroke);
 		polyline.setCoordinates(coordinates);
-		polyline.isBoundingBoxRelevant(isBoundingBoxUpdating);
+		polyline.setBoundingBoxRelevant(isBoundingBoxUpdating);
 		return polyline;
 	}
 	
@@ -64,6 +64,18 @@ public class WebSVG_Polygon extends WebSVG_Shape {
 	public void setCoordinates(float[] coordinates) {
 		vertex.outbound().setFloat32ArrayField("coordinates", coordinates);
 	}
+	
+	/**
+	 * following order: {x0, y0, x1, y1, ... , x[n-1], y[n-1]}
+	 * @param coordinates
+	 */
+	public void setCoordinates(double[] coordinates) {
+		int n = coordinates.length;
+		float[] fcoords = new float[n];
+		for(int i = 0; i<n; i++) { fcoords[i] = (float) coordinates[i]; }
+		vertex.outbound().setFloat32ArrayField("coordinates", fcoords);
+	}
+	
 	
 	/**
 	 * following order: {x0, y0, x1, y1, ... , x[n-1], y[n-1]}
