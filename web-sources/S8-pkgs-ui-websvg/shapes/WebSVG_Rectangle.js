@@ -31,7 +31,7 @@ export class WebSVG_Rectangle extends WebSVG_Shape {
 	hasRoundedCorners = false
 
 	/** @type{number} */
-	radius = 1.0;
+	radius = -1.0;
     
     constructor(){
         super();
@@ -91,6 +91,16 @@ export class WebSVG_Rectangle extends WebSVG_Shape {
 		this.SVG_node.setAttribute("y", viewport.yTranform(this.yBottomLeftCorner).toPrecision(6));
 		this.SVG_node.setAttribute("width", viewport.sTranform(this.width).toPrecision(6));
 		this.SVG_node.setAttribute("height", viewport.sTranform(this.height).toPrecision(6));
+
+		if(this.radius > 0){
+			this.SVG_node.setAttribute("rx", viewport.sTranform(this.radius).toPrecision(6));
+			this.SVG_node.setAttribute("ry", viewport.sTranform(this.radius).toPrecision(6));
+		}
+		else{
+			this.SVG_node.removeAttribute("rx");
+			this.SVG_node.removeAttribute("ry");
+		}
+
 		if(this.hasRoundedCorners){
 			this.SVG_node.setAttribute("r", viewport.sTranform(this.radius).toPrecision(6));
 		}

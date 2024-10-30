@@ -51,7 +51,7 @@ export class WebSVG_Shape extends WebSVG_Element {
 	 * @param {WebSVG_Viewport} viewport 
 	 */
 	updateStroke(viewport) {
-		let thickness = 0.12 * viewport.sTranform(this.strokeThickness);
+		let thickness = 0.08 * viewport.sTranform(this.strokeThickness);
 		this.SVG_node.setAttribute("stroke-width", thickness);
 	}
 
