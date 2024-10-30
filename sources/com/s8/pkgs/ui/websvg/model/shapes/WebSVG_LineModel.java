@@ -116,7 +116,7 @@ public class WebSVG_LineModel extends WebSVG_ShapeModel {
 		applyStyle(line);
 		applyProperties(line);
 		
-		return null;
+		return line;
 	}
 
 	

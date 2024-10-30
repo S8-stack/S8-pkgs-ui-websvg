@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.s8.api.annotations.S8Field;
 import com.s8.api.web.S8WebFront;
-import com.s8.pkgs.io.svg.styles.SVG_FillColor;
+import com.s8.pkgs.io.svg.styles.SVG_Fill;
 import com.s8.pkgs.io.svg.styles.SVG_Stroke;
 import com.s8.pkgs.ui.websvg.shapes.WebSVG_Path;
 import com.s8.pkgs.ui.websvg.shapes.WebSVG_Shape;
@@ -28,12 +28,12 @@ public class WebSVG_PathModel extends WebSVG_ShapeModel {
 	 * @param elements
 	 * @return
 	 */
-	public static WebSVG_PathModel create(SVG_Stroke stroke, SVG_FillColor fill,
+	public static WebSVG_PathModel create(SVG_Stroke stroke, SVG_Fill fill,
 			boolean isBoundingBoxUpdating,
 			WebSVG_PathElement... elements) {
 		WebSVG_PathModel shape = new WebSVG_PathModel();
 		if(stroke != null) { shape.setStroke(stroke); }
-		if(fill != null) { shape.setFillColor(fill); }
+		if(fill != null) { shape.setFill(fill); }
 		shape.setBoundingBoxRelevant(isBoundingBoxUpdating);
 		shape.setElements(elements);
 		return shape;
@@ -68,7 +68,7 @@ public class WebSVG_PathModel extends WebSVG_ShapeModel {
 	}
 
 	
-
+	
 	@Override
 	public WebSVG_Shape createWeb(S8WebFront front) {
 		WebSVG_Path polygon = new WebSVG_Path(front);

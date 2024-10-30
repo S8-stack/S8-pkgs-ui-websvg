@@ -16,6 +16,15 @@ import com.s8.pkgs.ui.websvg.WebSVG_Group;
  */
 @S8ObjectType(name = "com.s8.pkgs.ui.websvg.model.WebSVG_GroupModel")
 public class WebSVG_GroupModel extends WebSVG_ElementModel {
+	
+	
+	public static WebSVG_GroupModel create(List<WebSVG_ElementModel> elements, boolean isClickable) {
+		WebSVG_GroupModel groupModel = new WebSVG_GroupModel();
+		groupModel.setElements(elements);
+		groupModel.setBoundingBoxRelevant(true);
+		groupModel.setClickable(isClickable);
+		return groupModel;
+	}
 
 	
 	public @S8Field(name = "elements") WebSVG_ElementModel[] elements;

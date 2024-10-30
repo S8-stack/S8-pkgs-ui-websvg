@@ -4,7 +4,6 @@ import com.s8.api.annotations.S8Field;
 import com.s8.api.web.S8WebFront;
 import com.s8.pkgs.io.svg.maths.SVG_Vector;
 import com.s8.pkgs.io.svg.styles.SVG_Fill;
-import com.s8.pkgs.io.svg.styles.SVG_FillColor;
 import com.s8.pkgs.io.svg.styles.SVG_Stroke;
 import com.s8.pkgs.ui.websvg.shapes.WebSVG_Rectangle;
 import com.s8.pkgs.ui.websvg.shapes.WebSVG_Shape;
@@ -53,12 +52,12 @@ public class WebSVG_RectangleModel extends WebSVG_ShapeModel {
 	 * @param r
 	 * @return
 	 */
-	public static WebSVG_RectangleModel createRound(S8WebFront branch, SVG_Stroke stroke, SVG_FillColor fill,
+	public static WebSVG_RectangleModel createRound(SVG_Stroke stroke, SVG_Fill fill,
 			double x, double y, double width, double height, double radius,
 			boolean isBoundingBoxUpdating) {
 		WebSVG_RectangleModel shape = new WebSVG_RectangleModel();
 		if(stroke != null) { shape.setStroke(stroke); }
-		if(fill != null) { shape.setFillColor(fill); }
+		if(fill != null) { shape.setFill(fill); }
 		shape.setTopLeftCorner(x, y);
 		shape.setWidth(width);
 		shape.setHeight(height);

@@ -11,13 +11,18 @@ public class GenerateFunc {
 	public static void main(String[] args) {
 		
 		JS_CodeGenerator gen = new JS_CodeGenerator();
+		
 		SVG_StrokeThickness.JS_generateFunction(gen);
 		gen.skipLines(2);
+		
 		SVG_StrokeSolidity.JS_generateFunction(gen);
 		gen.skipLines(2);
+		
 		SVG_StrokeColor.JS_generateFunction(gen);
 		gen.skipLines(2);
+		
 		SVG_FillColor.JS_generateFunction(gen);
+		
 		System.out.print(gen.getCode());
 	}
 
